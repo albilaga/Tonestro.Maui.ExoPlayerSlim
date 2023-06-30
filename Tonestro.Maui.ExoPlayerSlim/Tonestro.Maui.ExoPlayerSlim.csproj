@@ -13,34 +13,14 @@
         <PackageOutputPath>nugetoutput</PackageOutputPath>
         <PackageLicensePath>..\LICENSE</PackageLicensePath>
     </PropertyGroup>
-    <PropertyGroup>
-        <HomeDir>$(UserProfile)</HomeDir>
-        <HomeDir Condition="'$(HomeDir)' == ''">$(Home)</HomeDir>
-        <ExoPlayerJavaProjectPath>$(MSBuildProjectDirectory)\java\ExoPlayerSlim</ExoPlayerJavaProjectPath>
-    </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Binding.Helpers" Version="0.2.0-preview.1">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.6.1">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.4" />
-        <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.3.0.1" />
-        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.3" />
-        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.4.0.4" />
+        <PackageReference Include="Xam.Plugins.Android.ExoPlayer" Version="2.18.6" />
+        <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.7" />
+        <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.4.0" />
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.4.2.1" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.4.0.6" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidStudioProject Include="$(ExoPlayerJavaProjectPath)" Module="exoplayerslim" GenerateBinding="True" />
+        <AndroidLibraryZip Include="Jars\exoplayerslim-release.aar" />
     </ItemGroup>
-    <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
-    <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
-    <Target Name="BeforeBuild">
-        <Exec Command="./gradlew build" WorkingDirectory="$(ExoPlayerJavaProjectPath)" />
-    </Target>
-    <Target Name="AfterClean">
-        <Exec Command="./gradlew clean" WorkingDirectory="$(ExoPlayerJavaProjectPath)" />
-    </Target>
 </Project>
