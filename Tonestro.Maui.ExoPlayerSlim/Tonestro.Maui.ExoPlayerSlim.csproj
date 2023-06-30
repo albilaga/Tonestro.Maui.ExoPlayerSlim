@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0-android</TargetFramework>
+        <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    </PropertyGroup>
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageId>Tonestro.Maui.ExoPlayerSlim</PackageId>
+        <Version>2.18.6.1</Version>
+        <Description>Contains bindings for https://exoplayer.dev</Description>
+        <Authors>Christian Kapplmüller, Albilaga</Authors>
+        <Company>fun.music IT GmbH</Company>
+        <PackageOutputPath>nugetoutput</PackageOutputPath>
+        <PackageLicensePath>..\LICENSE</PackageLicensePath>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Xam.Plugins.Android.ExoPlayer" Version="2.18.6" />
+        <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.7" />
+        <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.4.0" />
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.4.2.1" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.4.0.6" />
+    </ItemGroup>
+    <ItemGroup>
+        <LibraryProjectZip Include="Jars\exoplayerslim-release.aar" />
+    </ItemGroup>
+</Project>
